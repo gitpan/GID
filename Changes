@@ -1,0 +1,77 @@
+==================================================
+Changes from 1739-03-03 00:00:00 +0000 to present.
+==================================================
+
+------------------------------------------
+version 0.001 at 2012-12-15 02:42:17 +0000
+------------------------------------------
+
+  Change: 953569638b51ed340f84e175ceb4dcc72bc41dc0
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 03:42:09 +0000
+
+    Hups, double IO::All 
+
+  Change: a20ac57bf092852596f9a17a0eb4247bc685e96f
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 03:41:27 +0000
+
+    More clear import parameter handling 
+
+  Change: f51cbc5e270ca06c5ac7b6d7ba7e1a4dbebbf1c5
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 03:40:11 +0000
+
+    Added more detailed requirements 
+
+  Change: 06703a65c303a9daad92e3a57822598c836d83b2
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 03:28:54 +0000
+
+    More SYNOPSIS, proper strictures usage 
+
+  Change: 261f3e48e9a5a634912e7d52212b95b04d5108fa
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 03:25:12 +0000
+
+    Added %gid_packages to GID 
+
+  Change: 265aaafdf702f57beeb32c518510444f39762dae
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 03:04:15 +0000
+
+    A bit of reorganisation 
+
+  Change: c01386ad53d00b47ca3e0dceabdbb4cea01bc557
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 02:50:31 +0000
+
+    Also added test for exclusion of class 
+
+  Change: 697d39eba651381c6ffbae12c9e965567531b2cf
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 02:41:18 +0000
+
+    Made the GID import now a bit more flexible and effective 
+
+  Change: d6955c7bc8c9246a97fdf565b185cccbfaf6025f
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-13 06:09:03 +0000
+
+    Added Carp::Always, more tests 
+
+  Change: 20a81bb56670d1b795195fac215b9e84ce8a738d
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-13 05:32:27 +0000
+
+    Yeah, this is pervert... 
+
+  Change: eb67dd1226800c1bada700ef5b7afa8dc7145333
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-13 04:07:34 +0000
+
+    initial commit 
+
+================
+End of releases.
+================

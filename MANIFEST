@@ -1,0 +1,15 @@
+Changes
+LICENSE
+MANIFEST
+META.json
+META.yml
+Makefile.PL
+README
+dist.ini
+lib/GID.pm
+lib/GID/Class.pm
+lib/GID/Object.pm
+t/gid.t
+t/gid_class.t
+t/load.t
+t/release-pod-syntax.t
