@@ -3,7 +3,7 @@ BEGIN {
   $GID::Class::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::Class::VERSION = '0.001';
+  $GID::Class::VERSION = '0.002';
 }
 # ABSTRACT: Making your classes with GID
 
@@ -11,9 +11,13 @@ BEGIN {
 use strictures 1;
 use Import::Into;
 use Scalar::Util qw( blessed );
+use namespace::clean ();
 
 use GID ();
 use MooX ();
+
+use MooX::Override ();
+use MooX::Augment ();
 
 sub import {
 	my $class = shift;
@@ -22,46 +26,24 @@ sub import {
 
 	GID->import::into($target,@args);
 
-	my $stash = $target->package_stash;
-	my @gid_methods = $stash->list_all_symbols('CODE');
-
 	MooX->import::into($target,qw(
 		ClassStash
 		HasEnv
 		Options
 		Types::MooseLike
-	));
+		late
+	),
+		Override => [qw( -class )],
+		Augment => [qw( -class )],
+	);
+
+	namespace::clean->import::into($target);
 
 	$target->can('extends')->('GID::Object');
-
-	$target->class_stash->around_method('has',sub {
-		my $has = shift;
-		my $attribute_arg = shift;
-		my @attribute_args = @_;
-		my @attributes = ref $attribute_arg eq 'ARRAY' ? @{$attribute_arg} : ($attribute_arg);
-		for my $attribute (@attributes) {
-			if (grep { $attribute eq $_ } @gid_methods) {
-				my $gid_method = $target->class_stash->get_method($attribute);
-				$target->class_stash->remove_method($attribute);
-				$has->($attribute,@attribute_args);
-				$target->class_stash->around_method($attribute,sub {
-					my $attribute_method = shift;
-					my @args = @_;
-					if (blessed $args[0]) {
-						return $attribute_method->(@args);
-					} else {
-						return $gid_method->(@args);
-					}
-				});
-			} else {
-				$has->($attribute,@attribute_args);
-			}
-		}
-	});
-
 }
 
 1;
+
 __END__
 =pod
 
@@ -71,7 +53,7 @@ GID::Class - Making your classes with GID
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 

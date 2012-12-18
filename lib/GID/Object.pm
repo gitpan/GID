@@ -3,7 +3,7 @@ BEGIN {
   $GID::Object::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::Object::VERSION = '0.001';
+  $GID::Object::VERSION = '0.002';
 }
 # ABSTRACT: Base class for GID::Class objects
 
@@ -19,7 +19,7 @@ GID::Object - Base class for GID::Class objects
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 AUTHOR
 

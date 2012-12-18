@@ -1,10 +1,106 @@
 ==================================================
-Changes from 1739-03-03 00:00:00 +0000 to present.
+Changes from 1739-03-06 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.001 at 2012-12-15 02:42:17 +0000
+version 0.002 at 2012-12-18 18:39:52 +0000
 ------------------------------------------
+
+  Change: f032d0db15cab12057b86119b020717982f74b19
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-18 19:39:09 +0000
+
+    Ok, changed the import way for Augment/Override to MooX way 
+
+  Change: 31aa7c679148f4d6e286f4efe30475962bc18d9e
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-18 19:04:22 +0000
+
+    More requirements, added MooX::{Override|Augment} proper now, fixed
+    the error parsing test for XS and non-XS case 
+
+  Change: 1d4f147ed797cd80682945ba30850890d773019f
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-18 18:48:12 +0000
+
+    Ok, no namespace::clean on GID, added MooX::{late|Augment|Override} 
+
+  Change: 127cecd99bc1120831396335fe444e9d363b43dd
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-18 18:33:40 +0000
+
+    Removed now unnecessary code from GID::Class, added namespace::clean
+    also to GID itself 
+
+  Change: 98ce3b3afb3d48228cb132f778bc01b4bea7ba35
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-18 18:21:33 +0000
+
+    Merge branch 'master' of github.com:Getty/p5-gid
+
+    Conflicts:
+
+    lib/GID/Class.pm
+
+    First pull, then commit 
+
+  Change: 7aa92db6cae13a2a39e64aed6dfe72ddd2e60052
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-18 18:20:54 +0000
+
+    Yeah, let's use namespace::clean then! 
+
+  Change: 5dc248493d45578c4ec237654a72c9af0588a8f5
+  Author: Christian Walde <walde.christian@googlemail.com>
+  Date : 2012-12-18 18:15:39 +0000
+
+    don't expect the method package_stash to exist
+
+    The user might have changed it. 
+
+  Change: 473ee511beacc7bc6b3617e43604375bd2cc7ec0
+  Author: Christian Walde <walde.christian@googlemail.com>
+  Date : 2012-12-18 18:10:44 +0000
+
+    a bit of golf to reduce indentation depth 
+
+  Change: 4e7edd0a9075416f9a1fb044dd2c37ee2640eb8e
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 05:16:59 +0000
+
+    Oh yeah, strict and warnings... good idea ;) 
+
+  Change: 02525a9729dfa546047b2bb000613d0015c610c0
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 05:14:47 +0000
+
+    Added Class::Method::Modifiers to GID (and tests in context of
+    GID::Class) 
+
+  Change: 3ebeca885ee60f1b2efcf08c7070c6ba353577dd
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 04:47:56 +0000
+
+    Added include tests for the GID functions 
+
+  Change: 4e539797ce627c5d7df08a484ac1aa6d9a7426a4
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 04:44:29 +0000
+
+    Added include/exclude import parameter feature also to internal GID
+    functions and added test for those 
+
+  Change: 90d4e29b1da1a6c886c9ea7e21e528bb5da0e1dc
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 04:22:57 +0000
+
+    Added several new modules for the import of GID 
+
+  Change: a51b75cb06bf85a17fb38a22c4ea9aafd46d7286
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-15 03:43:17 +0000
+
+    Fixed strictures requirement 
 
   Change: 953569638b51ed340f84e175ceb4dcc72bc41dc0
   Author: Torsten Raudssus <torsten@raudss.us>

@@ -16,11 +16,18 @@ meta-spec:
 name: GID
 requires:
   Carp::Always: 0.12
+  Class::Load: 0.20
+  Class::Method::Modifiers: 1.12
+  Class::Method::ModifiersX::Augment: 0.001
+  Class::Method::ModifiersX::Override: 0.001
   Data::Printer: 0.35
+  DateTime: 0.78
   File::Copy::Recursive: 0.38
   File::Remove: 1.52
   File::ShareDir: 1.03
+  File::Temp: 0.22
   IO::All: 0.46
+  LWP::Simple: 6.00
   List::MoreUtils: 0.33
   Moo: 1.000006
   MooX: 0.101
@@ -28,13 +35,17 @@ requires:
   MooX::HasEnv: 0.003
   MooX::Options: 3.73
   MooX::Types::MooseLike: 0.16
+  MooX::late: 0.006
   Path::Class: 0.27
   Scalar::Util: 1.25
-  strictures: 1.00100
+  URI: 1.60
+  URL::Encode: 0.01
+  namespace::clean: 0.24
+  strictures: 1.004004
 resources:
   homepage: https://github.com/Getty/p5-gid
   repository: https://github.com/Getty/p5-gid.git
-version: 0.001
+version: 0.002
 x_Dist_Zilla:
   perl:
     version: 5.014002

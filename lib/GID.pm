@@ -3,7 +3,7 @@ BEGIN {
   $GID::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::VERSION = '0.001';
+  $GID::VERSION = '0.002';
 }
 # ABSTRACT: Get It Done - with Perl
 
@@ -11,6 +11,8 @@ BEGIN {
 use strictures 1;
 use Import::Into;
 use Package::Stash;
+use Class::Load qw( load_class );
+use namespace::clean ();
 
 my %gid_packages = (
 	DB => 'GID::DB',
@@ -18,8 +20,14 @@ my %gid_packages = (
 );
 
 my @packages = (
+	'strict' => undef,
+	'warnings' => [[ FATAL => 'all' ]],
 	'utf8' => undef,
 	'Carp::Always' => undef,
+	'DateTime' => undef,
+	'DateTime::Duration' => undef,
+	'URI' => undef,
+	'Class::Method::Modifiers' => undef,
 	'Path::Class' => [qw(
 		file
 		dir
@@ -83,6 +91,42 @@ my @packages = (
 		looks_like_number
 		set_prototype
 	)],
+	'Class::Load' => [qw(
+		load_class
+		load_optional_class
+		try_load_class
+		is_class_loaded
+		load_first_existing_class
+	)],
+	'File::Temp' => [qw(
+		tempfile
+		tempdir
+	)],
+	'URL::Encode' => [qw(
+		url_encode
+		url_encode_utf8
+		url_decode
+		url_decode_utf8
+		url_params_each
+		url_params_flat
+		url_params_mixed
+		url_params_multi
+	)],
+	'File::Copy' => [qw(
+		+copy
+		+move
+		cp
+		mv
+	)],
+	'LWP::Simple' => [qw(
+		+get
+		+head
+		+getprint
+		+getstore
+		+mirror
+		+is_success
+		+is_error
+	)],
 	'DDP' => [qw(
 		+p
 	)],
@@ -107,14 +151,6 @@ sub import {
 	my @args = @_;
 
 	$class->_gid_import($target,@args);
-
-	my $stash = Package::Stash->new($target);
-	$stash->add_symbol('&package_stash',sub { $stash });
-
-	$stash->add_symbol('&env',sub {
-		my $key = join('_',@_);
-		return defined $ENV{$key} ? $ENV{$key} : "";
-	});
 }
 
 sub _gid_import {
@@ -136,6 +172,36 @@ sub _gid_import {
 			@args
 		);
 	}
+	$class->_gid_import_functions($target,[\%include,\%exclude,\%features]);
+}
+
+sub _gid_import_functions {
+	my ( $self, $target, $include_exclude_features ) = @_;
+
+	my $stash = Package::Stash->new($target);
+
+	$self->_gid_import_function($stash,'package_stash',sub {
+		$stash
+	}, $include_exclude_features);
+
+	$self->_gid_import_function($stash,'env',sub {
+		my $key = join('_',@_);
+		return defined $ENV{$key} ? $ENV{$key} : "";
+	}, $include_exclude_features);
+
+}
+
+sub _gid_import_function {
+	my ( $self, $stash, $function, $sub, $include_exclude_features ) = @_;
+	my %include = %{$include_exclude_features->[0]};
+	my %exclude = %{$include_exclude_features->[1]};
+	my %features = %{$include_exclude_features->[2]};
+	if (%exclude) {
+		return if defined $exclude{$function};
+	} elsif (%include) {
+		return unless defined $include{$function};
+	}
+	$stash->add_symbol('&'.$function,$sub);
 }
 
 sub _gid_load_packages {
@@ -247,6 +313,7 @@ sub _gid_import_package {
 		# TODO
 	}
 	if ($load_package) {
+		load_class($import);
 		$import->import::into($target,@use_import_args);
 	}
 }
@@ -262,7 +329,7 @@ GID - Get It Done - with Perl
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
