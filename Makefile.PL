@@ -34,6 +34,7 @@ my %WriteMakefileArgs = (
     "File::Remove" => "1.52",
     "File::ShareDir" => "1.03",
     "File::Temp" => "0.22",
+    "File::chdir" => "0.1008",
     "IO::All" => "0.46",
     "LWP::Simple" => "6.00",
     "List::MoreUtils" => "0.33",
@@ -51,7 +52,7 @@ my %WriteMakefileArgs = (
     "namespace::clean" => "0.24",
     "strictures" => "1.004004"
   },
-  "VERSION" => "0.002",
+  "VERSION" => "0.003",
   "test" => {
     "TESTS" => "t/*.t"
   }

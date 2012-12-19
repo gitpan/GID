@@ -3,7 +3,7 @@ BEGIN {
   $GID::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::VERSION = '0.002';
+  $GID::VERSION = '0.003';
 }
 # ABSTRACT: Get It Done - with Perl
 
@@ -17,6 +17,7 @@ use namespace::clean ();
 my %gid_packages = (
 	DB => 'GID::DB',
 	Web => 'GID::Web',
+	IO => 'GID::IO',
 );
 
 my @packages = (
@@ -27,11 +28,13 @@ my @packages = (
 	'DateTime' => undef,
 	'DateTime::Duration' => undef,
 	'URI' => undef,
-	'Class::Method::Modifiers' => undef,
-	'Path::Class' => [qw(
-		file
-		dir
+	'File::chdir' => undef,
+	'Cwd' => [qw(
+		cwd
+		getcwd
+		chdir
 	)],
+	'Class::Method::Modifiers' => undef,
 	'Carp' => [qw(
 		confess
 		croak
@@ -44,9 +47,6 @@ my @packages = (
 	)],
 	'File::Copy::Recursive' => [qw(
 		dircopy
-	)],
-	'File::Remove' => [qw(
-		remove
 	)],
 	'List::MoreUtils' => [qw(
 		any
@@ -98,10 +98,6 @@ my @packages = (
 		is_class_loaded
 		load_first_existing_class
 	)],
-	'File::Temp' => [qw(
-		tempfile
-		tempdir
-	)],
 	'URL::Encode' => [qw(
 		url_encode
 		url_encode_utf8
@@ -135,6 +131,12 @@ my @packages = (
 	),[qw(
 		-utf8
 	)]],
+
+	#
+	# GID own core modules
+	#
+
+	'GID::IO' => [@GID::IO::EXPORT],
 );
 
 my @packages_order;
@@ -182,6 +184,10 @@ sub _gid_import_functions {
 
 	$self->_gid_import_function($stash,'package_stash',sub {
 		$stash
+	}, $include_exclude_features);
+
+	$self->_gid_import_function($stash,'say',sub {
+		print join("",@_)."\n";
 	}, $include_exclude_features);
 
 	$self->_gid_import_function($stash,'env',sub {
@@ -329,7 +335,7 @@ GID - Get It Done - with Perl
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

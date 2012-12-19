@@ -3,7 +3,7 @@ BEGIN {
   $GID::Class::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::Class::VERSION = '0.002';
+  $GID::Class::VERSION = '0.003';
 }
 # ABSTRACT: Making your classes with GID
 
@@ -53,7 +53,7 @@ GID::Class - Making your classes with GID
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

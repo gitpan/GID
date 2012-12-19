@@ -1,13 +1,16 @@
-package GID::Object;
+package GID::File;
 BEGIN {
-  $GID::Object::AUTHORITY = 'cpan:GETTY';
+  $GID::File::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::Object::VERSION = '0.003';
+  $GID::File::VERSION = '0.003';
 }
-# ABSTRACT: Base class for GID::Class objects
+# ABSTRACT: A file representation in GID
 
-use Moo;
+use strictures 1;
+use base 'Path::Class::File';
+
+sub rm { shift->remove(@_) }
 
 1;
 __END__
@@ -15,7 +18,7 @@ __END__
 
 =head1 NAME
 
-GID::Object - Base class for GID::Class objects
+GID::File - A file representation in GID
 
 =head1 VERSION
 

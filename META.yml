@@ -26,6 +26,7 @@ requires:
   File::Remove: 1.52
   File::ShareDir: 1.03
   File::Temp: 0.22
+  File::chdir: 0.1008
   IO::All: 0.46
   LWP::Simple: 6.00
   List::MoreUtils: 0.33
@@ -45,7 +46,7 @@ requires:
 resources:
   homepage: https://github.com/Getty/p5-gid
   repository: https://github.com/Getty/p5-gid.git
-version: 0.002
+version: 0.003
 x_Dist_Zilla:
   perl:
     version: 5.014002

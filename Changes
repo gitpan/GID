@@ -1,10 +1,22 @@
 ==================================================
-Changes from 1739-03-06 00:00:00 +0000 to present.
+Changes from 1739-03-07 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2012-12-18 18:39:52 +0000
+version 0.003 at 2012-12-19 05:38:52 +0000
 ------------------------------------------
+
+  Change: a207ff96931abbc60dfabfd5568ae63ef5000e7c
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-19 06:38:23 +0000
+
+    Added more absolute usage and documentation, also delete tests 
+
+  Change: 93a51ce8dd80b073b876544d73987b98753f35bd
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-12-19 05:59:13 +0000
+
+    Implemented GID::IO 
 
   Change: f032d0db15cab12057b86119b020717982f74b19
   Author: Torsten Raudssus <torsten@raudss.us>
