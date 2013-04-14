@@ -3,7 +3,7 @@ BEGIN {
   $GID::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::VERSION = '0.003';
+  $GID::VERSION = '0.004';
 }
 # ABSTRACT: Get It Done - with Perl
 
@@ -123,6 +123,10 @@ my @packages = (
 		+is_success
 		+is_error
 	)],
+	# 'Unknown::Values' => [qw(
+	# 	+unknown
+	# 	+is_unknown
+	# )],
 	'DDP' => [qw(
 		+p
 	)],
@@ -327,6 +331,7 @@ sub _gid_import_package {
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -335,7 +340,7 @@ GID - Get It Done - with Perl
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -361,4 +366,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

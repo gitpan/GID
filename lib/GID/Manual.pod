@@ -1,18 +1,4 @@
-package GID::File;
-BEGIN {
-  $GID::File::AUTHORITY = 'cpan:GETTY';
-}
-{
-  $GID::File::VERSION = '0.004';
-}
-# ABSTRACT: A file representation in GID
-
-use strictures 1;
-use base 'Path::Class::File';
-
-sub rm { shift->remove(@_) }
-
-1;
+# PODNAME: GID::Manual
 
 __END__
 
@@ -20,7 +6,7 @@ __END__
 
 =head1 NAME
 
-GID::File - A file representation in GID
+GID::Manual
 
 =head1 VERSION
 

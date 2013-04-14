@@ -11,10 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Get It Done - with Perl",
   "AUTHOR" => "Torsten Raudssus <torsten\@raudss.us>",
-  "BUILD_REQUIRES" => {
-    "Test::LoadAllModules" => "0.021",
-    "Test::More" => "0.98"
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -52,12 +49,29 @@ my %WriteMakefileArgs = (
     "namespace::clean" => "0.24",
     "strictures" => "1.004004"
   },
-  "VERSION" => "0.003",
+  "TEST_REQUIRES" => {
+    "Test::LoadAllModules" => "0.021",
+    "Test::More" => "0.98"
+  },
+  "VERSION" => "0.004",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};

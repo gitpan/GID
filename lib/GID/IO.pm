@@ -3,7 +3,7 @@ BEGIN {
   $GID::IO::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $GID::IO::VERSION = '0.003';
+  $GID::IO::VERSION = '0.004';
 }
 # ABSTRACT: IO functions of GID, like dir() and file()
 
@@ -42,7 +42,9 @@ sub rmrf { dir(@_)->rmrf }
 sub mkdir { GID::Dir->mkdir(@_)->absolute }
 
 1;
+
 __END__
+
 =pod
 
 =head1 NAME
@@ -51,7 +53,7 @@ GID::IO - IO functions of GID, like dir() and file()
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -95,4 +97,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

@@ -11,7 +11,9 @@ lib/GID/Class.pm
 lib/GID/Dir.pm
 lib/GID/File.pm
 lib/GID/IO.pm
+lib/GID/Manual.pod
 lib/GID/Object.pm
+provides.ini
 t/gid.t
 t/gid_class.t
 t/gid_io.t

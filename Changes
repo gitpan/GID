@@ -1,10 +1,35 @@
 ==================================================
-Changes from 1739-03-07 00:00:00 +0000 to present.
+Changes from 1739-07-01 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.003 at 2012-12-19 05:38:52 +0000
+version 0.004 at 2013-04-14 13:10:20 +0000
 ------------------------------------------
+
+  Change: 387d17e294e14752720801d1ac339e4c0ef17814
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2013-04-14 08:00:55 +0000
+
+    Have to remove Unknown::Values, just found it its only Perl 5.12,
+    very..... ineffective 
+
+  Change: cf036acb811282320a1c7610ceb6b83ffc672855
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2013-04-13 12:42:48 +0000
+
+    Experimental adding provides of a .pod file (as Perl QA test case) 
+
+  Change: aa506cff2872495bee6d84abe363c6a7cd21681b
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2013-02-21 03:39:57 +0000
+
+    Added is_unknown (in test and GID main concept) 
+
+  Change: 8f05552e0a158b81b60ac006814bedf85788f070
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2013-02-20 00:32:40 +0000
+
+    Added Unknown::Values to GID (and added a test inside GID::Class) 
 
   Change: a207ff96931abbc60dfabfd5568ae63ef5000e7c
   Author: Torsten Raudssus <torsten@raudss.us>
